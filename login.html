@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Connexion — Où Sont Mes Jeux</title>
+<link rel="icon" type="image/vnd.icon" href="/images/icone.ico">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+<style>
+  body { display: flex; justify-content: center; align-items: center; min-height: 100vh; flex-direction: column; padding: 1rem; }
+  .login-container { width: 100%; max-width: 450px; text-align: center; }
+  #logo { margin-bottom: 2rem; max-width: 250px; }
+  .form-group { text-align: left; margin-bottom: 1.25rem; }
+  #message { margin-top: 1rem; font-weight: 500; min-height: 24px; }
+  .msg.ok { color: var(--success-color); }
+  .msg.err { color: var(--danger-color); }
+</style>
+</head>
+<body>
+
+  <div class="login-container">
+    <img id="logo" src="images/logo_pc.png" alt="Logo Où Sont Mes Jeux">
+    
+    <div class="card">
+      <h2 style="text-align: center; display: block; border: none;">Connexion / Inscription</h2>
+      <form id="formLogin" novalidate>
+        <div class="form-group">
+          <label for="username"><i class="fas fa-user"></i> Nom d'utilisateur</label>
+          <div class="input-with-button">
+            <input id="username" placeholder="Votre nom" required>
+            <button type="button" id="effacer_username" class="btn-icon-inside" title="Effacer"><i class="fas fa-times"></i></button>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="password"><i class="fas fa-lock"></i> Mot de passe</label>
+          <div class="input-with-button">
+            <input id="password" type="password" placeholder="Votre mot de passe" required>
+            <button type="button" id="effacer_password" class="btn-icon-inside" title="Effacer"><i class="fas fa-times"></i></button>
+          </div>
+        </div>
+        
+        <div class="actions" style="flex-direction: column;">
+          <button type="submit" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i> Se connecter</button>
+          <button type="button" id="createAccount" class="btn btn-success"><i class="fas fa-user-plus"></i> Créer un compte</button>
+        </div>
+      </form>
+      <div id="message" class="msg"></div>
+    </div>
+  </div>
+
+<script>
+// --- Script simple pour le logo de la page de connexion ---
+(function() {
+  const logo = document.getElementById('logo');
+  if (logo) {
+    const isMobile = /Mobi|Android|iPhone/i.test(navigator.userAgent);
+    logo.src = isMobile ? 'images/logo_mobile.png' : 'images/logo_pc.png';
+  }
+})();
+
+
+// --- Logique pour les boutons "effacer" ---
+function setupClearButton(inputId, buttonId) {
+    const input = document.getElementById(inputId);
+    const button = document.getElementById(buttonId);
+    if (!input || !button) return;
+    const toggleButton = () => {
+        button.style.display = input.value.trim() !== '' ? 'inline-flex' : 'none';
+    };
+    input.addEventListener('input', toggleButton);
+    button.addEventListener('click', () => {
+        input.value = '';
+        toggleButton();
+        input.focus();
+    });
+    toggleButton();
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    setupClearButton('username', 'effacer_username');
+    setupClearButton('password', 'effacer_password');
+});
+
+// --- Reste du script de connexion ---
+async function loginOrCreate(isCreate){const username=document.getElementById('username').value.trim();const password=document.getElementById('password').value.trim();const msg=document.getElementById('message');if(!username||!password){msg.textContent="Veuillez remplir tous les champs";msg.className='msg err';return}
+try{const resp=await fetch('api.php',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'login',username,password}),credentials:'same-origin'});const data=await resp.json();const messageText=isCreate&&data.status==='ok'?"Compte créé ! Redirection...":data.message;msg.textContent=messageText;msg.className=data.status==='ok'?'msg ok':'msg err';if(data.status==='ok'){setTimeout(()=>window.location.href='index.php',1000)}}catch(err){console.error(err);msg.textContent="Erreur serveur, réessayez plus tard";msg.className='msg err'}}
+document.getElementById('formLogin').addEventListener('submit',e=>{e.preventDefault();loginOrCreate(false)});document.getElementById('createAccount').addEventListener('click',()=>{loginOrCreate(true)});
+</script>
+</body>
+</html>

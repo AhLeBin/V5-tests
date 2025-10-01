@@ -1,0 +1,827 @@
+[
+    {
+        "nom": "Pictures",
+        "loc": "Étagère poele",
+        "sousloc": "5F"
+    },
+    {
+        "nom": "Imagicien",
+        "loc": "Étagère poele",
+        "sousloc": "5F"
+    },
+    {
+        "nom": "Tags",
+        "loc": "Étagère poele",
+        "sousloc": "5F"
+    },
+    {
+        "nom": "Qui perd gagne",
+        "loc": "Étagère poele",
+        "sousloc": "5F"
+    },
+    {
+        "nom": "Detective club",
+        "loc": "Étagère poele",
+        "sousloc": "5F"
+    },
+    {
+        "nom": "Whaaat?",
+        "loc": "Étagère poele",
+        "sousloc": "5F"
+    },
+    {
+        "nom": "Dekalko",
+        "loc": "Étagère poele",
+        "sousloc": "5F"
+    },
+    {
+        "nom": "Villainous violet",
+        "loc": "Étagère poele",
+        "sousloc": "4F"
+    },
+    {
+        "nom": "Villainous rouge",
+        "loc": "Étagère poele",
+        "sousloc": "4F"
+    },
+    {
+        "nom": "Stella",
+        "loc": "Étagère poele",
+        "sousloc": "4F"
+    },
+    {
+        "nom": "Mysterium",
+        "loc": "Étagère poele",
+        "sousloc": "4F"
+    },
+    {
+        "nom": "Dixit odyssey",
+        "loc": "Étagère poele",
+        "sousloc": "4F"
+    },
+    {
+        "nom": "Obscurio",
+        "loc": "Étagère poele",
+        "sousloc": "4F"
+    },
+    {
+        "nom": "Dixit Cannes",
+        "loc": "Étagère poele",
+        "sousloc": "4F"
+    },
+    {
+        "nom": "Tokaido",
+        "loc": "Étagère poele",
+        "sousloc": "3F"
+    },
+    {
+        "nom": "Loony quest",
+        "loc": "Étagère poele",
+        "sousloc": "3F"
+    },
+    {
+        "nom": "Au creux de ta main",
+        "loc": "Étagère poele",
+        "sousloc": "3F"
+    },
+    {
+        "nom": "One key",
+        "loc": "Étagère poele",
+        "sousloc": "3F"
+    },
+    {
+        "nom": "Slide quest",
+        "loc": "Étagère poele",
+        "sousloc": "3F"
+    },
+    {
+        "nom": "Abracada quoi ?",
+        "loc": "Étagère poele",
+        "sousloc": "3F"
+    },
+    {
+        "nom": "Dream on",
+        "loc": "Étagère poele",
+        "sousloc": "3F"
+    },
+    {
+        "nom": "Londres",
+        "loc": "Étagère poele",
+        "sousloc": "2F"
+    },
+    {
+        "nom": "Hister",
+        "loc": "Étagère poele",
+        "sousloc": "2F"
+    },
+    {
+        "nom": "Mocro macro crime city",
+        "loc": "Étagère poele",
+        "sousloc": "2F"
+    },
+    {
+        "nom": "Dominion guildes EXT",
+        "loc": "Étagère poele",
+        "sousloc": "2F"
+    },
+    {
+        "nom": "Dominion l'age des ténèbres",
+        "loc": "Étagère poele",
+        "sousloc": "2F"
+    },
+    {
+        "nom": "Dominion",
+        "loc": "Étagère poele",
+        "sousloc": "2F"
+    },
+    {
+        "nom": "Aeons End",
+        "loc": "Étagère poele",
+        "sousloc": "2F"
+    },
+    {
+        "nom": "Concept",
+        "loc": "Étagère poele",
+        "sousloc": "1F"
+    },
+    {
+        "nom": "Iki",
+        "loc": "Étagère haute verrière",
+        "sousloc": "5F"
+    },
+    {
+        "nom": "Le testament du duc de Crecy",
+        "loc": "Étagère haute verrière",
+        "sousloc": "5F"
+    },
+    {
+        "nom": "Roll for the galaxy",
+        "loc": "Étagère haute verrière",
+        "sousloc": "5F"
+    },
+    {
+        "nom": "Les petites bourgades",
+        "loc": "Étagère haute verrière",
+        "sousloc": "5F"
+    },
+    {
+        "nom": "Pandémie le remède",
+        "loc": "Étagère haute verrière",
+        "sousloc": "5F"
+    },
+    {
+        "nom": "Abyss",
+        "loc": "Étagère haute verrière",
+        "sousloc": "4F"
+    },
+    {
+        "nom": "Azul",
+        "loc": "Étagère haute verrière",
+        "sousloc": "4F"
+    },
+    {
+        "nom": "Meadow",
+        "loc": "Étagère haute verrière",
+        "sousloc": "4F"
+    },
+    {
+        "nom": "The magnificient",
+        "loc": "Étagère haute verrière",
+        "sousloc": "4F"
+    },
+    {
+        "nom": "Ghost stories",
+        "loc": "Étagère haute verrière",
+        "sousloc": "4F"
+    },
+    {
+        "nom": "Micro macro full house",
+        "loc": "Étagère haute verrière",
+        "sousloc": "4F"
+    },
+    {
+        "nom": "Quadropolis",
+        "loc": "Étagère haute verrière",
+        "sousloc": "3F"
+    },
+    {
+        "nom": "Everdell",
+        "loc": "Étagère haute verrière",
+        "sousloc": "3F"
+    },
+    {
+        "nom": "Cargo noir",
+        "loc": "Étagère haute verrière",
+        "sousloc": "3F"
+    },
+    {
+        "nom": "Whistle montain",
+        "loc": "Étagère haute verrière",
+        "sousloc": "3F"
+    },
+    {
+        "nom": "Mice and mystics",
+        "loc": "Étagère haute verrière",
+        "sousloc": "3F"
+    },
+    {
+        "nom": "It's a wonderful world",
+        "loc": "Étagère haute verrière",
+        "sousloc": "2F"
+    },
+    {
+        "nom": "Pharaon",
+        "loc": "Étagère haute verrière",
+        "sousloc": "2F"
+    },
+    {
+        "nom": "7 wonders",
+        "loc": "Étagère haute verrière",
+        "sousloc": "2F"
+    },
+    {
+        "nom": "Dream home + EXT",
+        "loc": "Étagère haute verrière",
+        "sousloc": "2F"
+    },
+    {
+        "nom": "Isla dorada",
+        "loc": "Étagère haute verrière",
+        "sousloc": "2F"
+    },
+    {
+        "nom": "The adventurers la pyramide d'Horus",
+        "loc": "Étagère haute verrière",
+        "sousloc": "1F"
+    },
+    {
+        "nom": "Lords of xidit",
+        "loc": "Étagère haute verrière",
+        "sousloc": "1F"
+    },
+    {
+        "nom": "Potion explosion",
+        "loc": "Étagère haute verrière",
+        "sousloc": "1F"
+    },
+    {
+        "nom": "Coimbra",
+        "loc": "Étagère haute verrière",
+        "sousloc": "1F"
+    },
+    {
+        "nom": "Egizia",
+        "loc": "Étagère haute verrière",
+        "sousloc": "1F"
+    },
+    {
+        "nom": "Fertility",
+        "loc": "Étagère basse verrière",
+        "sousloc": "1F 1"
+    },
+    {
+        "nom": "CV",
+        "loc": "Étagère basse verrière",
+        "sousloc": "1F 1"
+    },
+    {
+        "nom": "Les dragons du Mékong",
+        "loc": "Étagère basse verrière",
+        "sousloc": "1F 1"
+    },
+    {
+        "nom": "Les colons de Catane",
+        "loc": "Étagère basse verrière",
+        "sousloc": "1F 1"
+    },
+    {
+        "nom": "The hunger",
+        "loc": "Étagère basse verrière",
+        "sousloc": "1F 2"
+    },
+    {
+        "nom": "Les charlatans de Belcastel",
+        "loc": "Étagère basse verrière",
+        "sousloc": "1F 2"
+    },
+    {
+        "nom": "La boca",
+        "loc": "Étagère basse verrière",
+        "sousloc": "1F 2"
+    },
+    {
+        "nom": "Thèbes",
+        "loc": "Étagère basse verrière",
+        "sousloc": "1F 2"
+    },
+    {
+        "nom": "Naufragés",
+        "loc": "Étagère basse verrière",
+        "sousloc": "1F 2"
+    },
+    {
+        "nom": "Mille fiori",
+        "loc": "Étagère basse verrière",
+        "sousloc": "1F 3"
+    },
+    {
+        "nom": "Hadara",
+        "loc": "Étagère basse verrière",
+        "sousloc": "1F 3"
+    },
+    {
+        "nom": "Happy pigs",
+        "loc": "Étagère basse verrière",
+        "sousloc": "1F 3"
+    },
+    {
+        "nom": "Takenoko",
+        "loc": "Étagère basse verrière",
+        "sousloc": "1F 3"
+    },
+    {
+        "nom": "Room 25",
+        "loc": "Étagère basse verrière",
+        "sousloc": "1F 3"
+    },
+    {
+        "nom": "Dice forge",
+        "loc": "Étagère basse verrière",
+        "sousloc": "1F 4"
+    },
+    {
+        "nom": "Zooloretto",
+        "loc": "Étagère basse verrière",
+        "sousloc": "1F 4"
+    },
+    {
+        "nom": "My city",
+        "loc": "Étagère basse verrière",
+        "sousloc": "1F 4"
+    },
+    {
+        "nom": "Les châteaux de Bourgogne",
+        "loc": "Étagère basse verrière",
+        "sousloc": "1F 4"
+    },
+    {
+        "nom": "Papa Paolo",
+        "loc": "Étagère basse verrière",
+        "sousloc": "1F 4"
+    },
+    {
+        "nom": "Biotopes",
+        "loc": "Étagère basse verrière",
+        "sousloc": "2F 4"
+    },
+    {
+        "nom": "Medieval adacemy",
+        "loc": "Étagère basse verrière",
+        "sousloc": "2F 4"
+    },
+    {
+        "nom": "Las Vegas",
+        "loc": "Étagère basse verrière",
+        "sousloc": "2F 4"
+    },
+    {
+        "nom": "Grimoria",
+        "loc": "Étagère basse verrière",
+        "sousloc": "2F 4"
+    },
+    {
+        "nom": "Paper Tales",
+        "loc": "Étagère basse verrière",
+        "sousloc": "2F 4"
+    },
+    {
+        "nom": "Lanternes",
+        "loc": "Étagère basse verrière",
+        "sousloc": "2F 4"
+    },
+    {
+        "nom": "Dune imperium",
+        "loc": "Étagère basse verrière",
+        "sousloc": "2F 3"
+    },
+    {
+        "nom": "Golden Horn",
+        "loc": "Étagère basse verrière",
+        "sousloc": "2F 3"
+    },
+    {
+        "nom": "Dice hospital",
+        "loc": "Étagère basse verrière",
+        "sousloc": "2F 3"
+    },
+    {
+        "nom": "Les tavernes de la vallée profonde",
+        "loc": "Étagère basse verrière",
+        "sousloc": "2F 3"
+    },
+    {
+        "nom": "Dr Shark",
+        "loc": "Étagère basse verrière",
+        "sousloc": "2F 3"
+    },
+    {
+        "nom": "The loop",
+        "loc": "Étagère basse verrière",
+        "sousloc": "2F 2"
+    },
+    {
+        "nom": "Sultanaiya",
+        "loc": "Étagère basse verrière",
+        "sousloc": "2F 2"
+    },
+    {
+        "nom": "Jamaica",
+        "loc": "Étagère basse verrière",
+        "sousloc": "2F 2"
+    },
+    {
+        "nom": "Istanbul",
+        "loc": "Étagère basse verrière",
+        "sousloc": "2F 2"
+    },
+    {
+        "nom": "Calico",
+        "loc": "Étagère basse verrière",
+        "sousloc": "2F 2"
+    },
+    {
+        "nom": "L'antre du roi de la montagne",
+        "loc": "Étagère basse verrière",
+        "sousloc": "1F 1"
+    },
+    {
+        "nom": "Great western trail",
+        "loc": "Étagère basse verrière",
+        "sousloc": "1F 1"
+    },
+    {
+        "nom": "Flotilla",
+        "loc": "Étagère basse verrière",
+        "sousloc": "2F 1"
+    },
+    {
+        "nom": "Steam park",
+        "loc": "Étagère basse verrière",
+        "sousloc": "2F 1"
+    },
+    {
+        "nom": "Ex libris",
+        "loc": "Étagère basse verrière",
+        "sousloc": "2F 1"
+    },
+    {
+        "nom": "L' antre du roi de la montagne",
+        "loc": "Étagère basse verrière",
+        "sousloc": "2F 1"
+    },
+    {
+        "nom": "Ginkopolis",
+        "loc": "Étagère basse verrière",
+        "sousloc": "2F"
+    },
+    {
+        "nom": "Lewis et Clark",
+        "loc": "Étagère basse verrière",
+        "sousloc": "2F"
+    },
+    {
+        "nom": "Prosperity",
+        "loc": "Étagère basse verrière",
+        "sousloc": "2F"
+    },
+    {
+        "nom": "Bora bora",
+        "loc": "Étagère basse verrière",
+        "sousloc": "2F"
+    },
+    {
+        "nom": "Gorinto",
+        "loc": "Étagère basse verrière",
+        "sousloc": "2F"
+    },
+    {
+        "nom": "Mystic Vale",
+        "loc": "Étagère basse verrière",
+        "sousloc": "2F"
+    },
+    {
+        "nom": "Grand hôtel Austria",
+        "loc": "Étagère basse verrière",
+        "sousloc": "2F"
+    },
+    {
+        "nom": "Les voyages de Marco Polo",
+        "loc": "Étagère basse verrière",
+        "sousloc": "2F"
+    },
+    {
+        "nom": "Altiplano",
+        "loc": "Étagère basse verrière",
+        "sousloc": "2F"
+    },
+    {
+        "nom": "Dvonn",
+        "loc": "Étagère basse verrière",
+        "sousloc": "2F"
+    },
+    {
+        "nom": "Russian Railroads",
+        "loc": "Étagère basse verrière",
+        "sousloc": "2F"
+    },
+    {
+        "nom": "Puerto Rico",
+        "loc": "Étagère basse verrière",
+        "sousloc": "2F"
+    },
+    {
+        "nom": "Le désert interdit",
+        "loc": "Étagère basse verrière",
+        "sousloc": "3F"
+    },
+    {
+        "nom": "Nouvelles contrées",
+        "loc": "Étagère basse verrière",
+        "sousloc": "3F"
+    },
+    {
+        "nom": "Nidavellir",
+        "loc": "Étagère basse verrière",
+        "sousloc": "3F"
+    },
+    {
+        "nom": "Chakra",
+        "loc": "Étagère basse verrière",
+        "sousloc": "3F"
+    },
+    {
+        "nom": "Diamant",
+        "loc": "Étagère basse verrière",
+        "sousloc": "3F"
+    },
+    {
+        "nom": "Splendor",
+        "loc": "Étagère basse verrière",
+        "sousloc": "3F"
+    },
+    {
+        "nom": "Les évadés de Cartagena",
+        "loc": "Étagère basse verrière",
+        "sousloc": "3F"
+    },
+    {
+        "nom": "Century la route des épices",
+        "loc": "Étagère basse verrière",
+        "sousloc": "3F"
+    },
+    {
+        "nom": "Cacao",
+        "loc": "Étagère basse verrière",
+        "sousloc": "3F"
+    },
+    {
+        "nom": "Carcassonne",
+        "loc": "Étagère basse verrière",
+        "sousloc": "3F"
+    },
+    {
+        "nom": "Arborea",
+        "loc": "Étagère basse verrière",
+        "sousloc": "3F"
+    },
+    {
+        "nom": "Ganymède",
+        "loc": "Étagère basse verrière",
+        "sousloc": "3F"
+    },
+    {
+        "nom": "Lorenzo le magnifique + EXT",
+        "loc": "Bureau étagère haute",
+        "sousloc": "3F"
+    },
+    {
+        "nom": "La guilde des expéditions marchandes",
+        "loc": "Bureau étagère haute",
+        "sousloc": "4F"
+    },
+    {
+        "nom": "Akropolis",
+        "loc": "Bureau étagère haute",
+        "sousloc": "4F"
+    },
+    {
+        "nom": "Génotype",
+        "loc": "Bureau étagère haute",
+        "sousloc": "4F"
+    },
+    {
+        "nom": "Rauha",
+        "loc": "Bureau étagère haute",
+        "sousloc": "4F"
+    },
+    {
+        "nom": "Sagani",
+        "loc": "Bureau étagère haute",
+        "sousloc": "4F"
+    },
+    {
+        "nom": "Lueur",
+        "loc": "Bureau étagère haute",
+        "sousloc": "4F"
+    },
+    {
+        "nom": "Forêt mixte + EXT",
+        "loc": "Bureau étagère haute",
+        "sousloc": "4F"
+    },
+    {
+        "nom": "Parks + EXT",
+        "loc": "Bureau étagère haute",
+        "sousloc": "4F"
+    },
+    {
+        "nom": "Fantasy realms",
+        "loc": "Bureau étagère haute",
+        "sousloc": "4F"
+    },
+    {
+        "nom": "Mysterium parks",
+        "loc": "Bureau étagère haute",
+        "sousloc": "4F"
+    },
+    {
+        "nom": "Challengers",
+        "loc": "Bureau étagère haute",
+        "sousloc": "4F"
+    },
+    {
+        "nom": "Les tribus du vent",
+        "loc": "Bureau étagère haute",
+        "sousloc": "4F"
+    },
+    {
+        "nom": "Gutenberg",
+        "loc": "Bureau étagère haute",
+        "sousloc": "4F"
+    },
+    {
+        "nom": "Cloudage",
+        "loc": "Bureau étagère haute",
+        "sousloc": "4F"
+    },
+    {
+        "nom": "Bitoku",
+        "loc": "Bureau étagère haute",
+        "sousloc": "4F"
+    },
+    {
+        "nom": "Heredity",
+        "loc": "Bureau étagère haute",
+        "sousloc": "5F"
+    },
+    {
+        "nom": "Les aventures de Robin des bois",
+        "loc": "Bureau étagère haute",
+        "sousloc": "5F"
+    },
+    {
+        "nom": "Chronicles of crime",
+        "loc": "Bureau étagère haute",
+        "sousloc": "5F"
+    },
+    {
+        "nom": "Paleo",
+        "loc": "Bureau étagère haute",
+        "sousloc": "5F"
+    },
+    {
+        "nom": "Les ruines perdues de Narak",
+        "loc": "Bureau étagère haute",
+        "sousloc": "5F"
+    },
+    {
+        "nom": "Beyond the sun",
+        "loc": "Bureau étagère haute",
+        "sousloc": "5F"
+    },
+    {
+        "nom": "Ark nova",
+        "loc": "Bureau étagère haute",
+        "sousloc": "5F"
+    },
+    {
+        "nom": "Turbulences",
+        "loc": "Bureau étagère haute",
+        "sousloc": "5F"
+    },
+    {
+        "nom": "Wingspan",
+        "loc": "Bureau étagère basse",
+        "sousloc": "2F"
+    },
+    {
+        "nom": "Five tribes",
+        "loc": "Bureau étagère basse",
+        "sousloc": "2F"
+    },
+    {
+        "nom": "Rajas of the Ganges",
+        "loc": "Bureau étagère basse",
+        "sousloc": "2F"
+    },
+    {
+        "nom": "La quête du bonheur",
+        "loc": "Bureau étagère basse",
+        "sousloc": "2F"
+    },
+    {
+        "nom": "Concordia",
+        "loc": "Bureau étagère basse",
+        "sousloc": "2F"
+    },
+    {
+        "nom": "The prodigals club",
+        "loc": "Bureau étagère basse",
+        "sousloc": "2F"
+    },
+    {
+        "nom": "Underwater cities",
+        "loc": "Bureau étagère basse",
+        "sousloc": "2F"
+    },
+    {
+        "nom": "Ricochet robots",
+        "loc": "Bureau étagère basse",
+        "sousloc": "2F"
+    },
+    {
+        "nom": "Agricola",
+        "loc": "Bureau étagère basse",
+        "sousloc": "2F"
+    },
+    {
+        "nom": "K2",
+        "loc": "Bureau étagère basse",
+        "sousloc": "2F"
+    },
+    {
+        "nom": "Indigo",
+        "loc": "Bureau étagère basse",
+        "sousloc": "2F"
+    },
+    {
+        "nom": "Pandémie legacy saison 1",
+        "loc": "Bureau étagère basse",
+        "sousloc": "2F"
+    },
+    {
+        "nom": "Terraforming Mars",
+        "loc": "Bureau étagère basse",
+        "sousloc": "1F"
+    },
+    {
+        "nom": "Shakespeare",
+        "loc": "Bureau étagère basse",
+        "sousloc": "1F"
+    },
+    {
+        "nom": "Otys",
+        "loc": "Bureau étagère basse",
+        "sousloc": "1F"
+    },
+    {
+        "nom": "Nauticus",
+        "loc": "Bureau étagère basse",
+        "sousloc": "1F"
+    },
+    {
+        "nom": "Between two castles of mad king Ludvig",
+        "loc": "Bureau étagère basse",
+        "sousloc": "1F"
+    },
+    {
+        "nom": "Descendance",
+        "loc": "Bureau étagère basse",
+        "sousloc": "1F"
+    },
+    {
+        "nom": "Vasco de Gama",
+        "loc": "Bureau étagère basse",
+        "sousloc": "1F"
+    },
+    {
+        "nom": "Tzolki'n le calendrier maya",
+        "loc": "Bureau étagère basse",
+        "sousloc": "1F"
+    },
+    {
+        "nom": "Un monde oublié",
+        "loc": "Bureau étagère basse",
+        "sousloc": "1F"
+    }
+]
