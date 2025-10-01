@@ -1,8 +1,6 @@
 <?php
 session_start();
-header('Content-Type: application/json');
 
-// --- Fonctions Utilitaires ---
 function getUserDir($username){
     $dir = __DIR__ . '/data/' . $username;
     if(!is_dir($dir)) mkdir($dir, 0777, true);
@@ -10,129 +8,161 @@ function getUserDir($username){
 }
 
 function getUserFile($username, $type){
-    return getUserDir($username) . '/' . $type . '.json';
+    $dir = getUserDir($username);
+    return $dir . '/' . $type . '.json';
 }
 
-function load_json($file, $default = []){
+function load_json($file, $default){
     if(!file_exists($file)) return $default;
     $data = json_decode(file_get_contents($file), true);
-    return is_array($data) ? $data : $default;
+    if(!is_array($data)) return $default;
+    return $data;
 }
 
 function save_json($file, $data){
-    return file_put_contents($file, json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+    return file_put_contents($file, json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE)) !== false;
 }
 
-// --- Gestion de l'entrée ---
-$input = json_decode(file_get_contents('php://input'), true) ?? [];
+$raw = file_get_contents('php://input');
+$input = $raw ? json_decode($raw, true) : [];
 $action = $input['action'] ?? '';
 
-// --- Authentification ---
-if ($action === 'login') {
-    $usersFile = __DIR__ . '/data/users.json';
-    $users = load_json($usersFile);
+$usersFile = __DIR__ . '/data/users.json';
+$users = load_json($usersFile, []);
+
+if($action === 'login'){
     $username = preg_replace('/[^a-zA-Z0-9_-]/','', strtolower($input['username'] ?? ''));
     $password = $input['password'] ?? '';
 
-    if(!$username || !$password) exit(json_encode(['status'=>'error','message'=>'Champs requis']));
+    if(!$username || !$password){
+        echo json_encode(['status'=>'error','message'=>'Champs requis']); exit;
+    }
 
-    if(!isset($users[$username])){ // Création de compte
+    $personalDir = getUserDir($username);
+    $personalJeux = getUserFile($username, 'jeux');
+    $personalLoc = getUserFile($username, 'loc');
+    $personalSousLoc = getUserFile($username, 'sous_loc');
+
+    if(!isset($users[$username])){
+        // Création compte
         $users[$username] = password_hash($password, PASSWORD_DEFAULT);
         save_json($usersFile, $users);
-        // Initialiser les fichiers pour le nouvel utilisateur
-        save_json(getUserFile($username, 'jeux'), []);
-        save_json(getUserFile($username, 'loc'), [""]);
-        save_json(getUserFile($username, 'sous_loc'), [""]);
-        save_json(getUserFile($username, 'categories'), ["Stratégie", "Party Game", "Coopératif", "Deck-building"]);
+        save_json($personalJeux, []);
+        save_json($personalLoc, [""]);
+        save_json($personalSousLoc, [""]);
     } elseif(!password_verify($password, $users[$username])){
-        exit(json_encode(['status'=>'error','message'=>'Mot de passe incorrect']));
+        echo json_encode(['status'=>'error','message'=>'Mot de passe incorrect']); exit;
     }
 
     $_SESSION['user'] = $username;
-    exit(json_encode(['status'=>'ok','message'=>'Connexion réussie']));
+    echo json_encode(['status'=>'ok','message'=>'Connexion réussie']); exit;
 }
 
-if (!isset($_SESSION['user'])) {
+// Vérification session
+if($action === 'check_session'){
+    echo json_encode(['status'=> isset($_SESSION['user']) ? 'ok':'error']); exit;
+}
+
+// Déconnexion
+if($action === 'logout'){
+    session_destroy();
+    echo json_encode(['status'=>'ok']); exit;
+}
+
+// Vérifie que l'utilisateur est connecté
+if(!isset($_SESSION['user'])){
     http_response_code(403);
-    exit(json_encode(['status'=>'error','message'=>'Non connecté']));
+    echo json_encode(['status'=>'error','message'=>'Non connecté']); exit;
 }
 
 $username = $_SESSION['user'];
+$jeux = load_json(getUserFile($username,'jeux'), []);
+$loc = load_json(getUserFile($username,'loc'), [""]);
+$sous_loc = load_json(getUserFile($username,'sous_loc'), [""]);
 
-// --- Actions sur les données ---
+// --- Actions CRUD ---
 switch($action){
     case 'read_all':
-        echo json_encode([
-            'status'=>'ok',
-            'jeux'=>load_json(getUserFile($username,'jeux')),
-            'loc'=>load_json(getUserFile($username,'loc'), [""]),
-            'sous_loc'=>load_json(getUserFile($username,'sous_loc'), [""]),
-            'categories'=>load_json(getUserFile($username,'categories'), [])
-        ]);
+        echo json_encode(['status'=>'ok','jeux'=>$jeux,'loc'=>$loc,'sous_loc'=>$sous_loc]);
         break;
 
-    case 'save_game':
-        $gameData = $input['game'];
-        if (!$gameData || empty($gameData['nom'])) {
-            exit(json_encode(['status'=>'error', 'message'=>'Le nom du jeu est requis.']));
-        }
+    case 'add_or_update':
+        $nom = trim($input['nom'] ?? '');
+        $locSel = $input['loc'] ?? '';
+        $sousSel = $input['sousloc'] ?? '';
+        if(!$nom) exit(json_encode(['status'=>'error','html'=>'<div class="msg err">Nom requis.</div>']));
 
-        $jeux = load_json(getUserFile($username, 'jeux'));
-        $gameId = $gameData['id'] ?? null;
-
-        if ($gameId) { // Mise à jour
-            $found = false;
-            foreach ($jeux as &$jeu) {
-                if ($jeu['id'] === $gameId) {
-                    $jeu = array_merge($jeu, $gameData);
-                    $found = true;
-                    break;
-                }
+        $found=false;
+        foreach($jeux as &$j){
+            if(strtolower($j['nom'])===strtolower($nom)){
+                $j['loc']=$locSel;
+                $j['sousloc']=$sousSel;
+                $found=true; break;
             }
-            if (!$found) exit(json_encode(['status'=>'error', 'message'=>'Jeu à mettre à jour non trouvé.']));
-        } else { // Ajout
-            $gameData['id'] = 'game_' . time() . rand(100, 999);
-            $jeux[] = $gameData;
         }
+        if(!$found) $jeux[]= ['nom'=>$nom,'loc'=>$locSel,'sousloc'=>$sousSel];
 
-        save_json(getUserFile($username, 'jeux'), $jeux);
-        echo json_encode(['status'=>'ok', 'message'=>'Jeu sauvegardé !']);
+        save_json(getUserFile($username,'jeux'), $jeux);
+        echo json_encode(['status'=>'ok','html'=>"<div class='msg ok'>Jeu ".htmlspecialchars($nom)." ".($found?'mis à jour':'ajouté')."</div>"]);
         break;
 
     case 'delete_game':
-        $gameId = $input['id'] ?? null;
-        if (!$gameId) exit(json_encode(['status'=>'error', 'message'=>'ID de jeu manquant.']));
-
-        $jeux = load_json(getUserFile($username, 'jeux'));
-        $jeux = array_values(array_filter($jeux, fn($j) => $j['id'] !== $gameId));
-        save_json(getUserFile($username, 'jeux'), $jeux);
-        echo json_encode(['status'=>'ok', 'message'=>'Jeu supprimé.']);
+        $nom = trim($input['nom'] ?? '');
+        if(!$nom) exit(json_encode(['status'=>'error','html'=>'<div class="msg err">Nom requis.</div>']));
+        $newJeux = array_filter($jeux, fn($j)=>strtolower($j['nom'])!==strtolower($nom));
+        if(count($newJeux)===count($jeux)) exit(json_encode(['status'=>'error','html'=>'<div class="msg err">Jeu introuvable</div>']));
+        $jeux = array_values($newJeux);
+        save_json(getUserFile($username,'jeux'), $jeux);
+        echo json_encode(['status'=>'ok','html'=>'<div class="msg ok">Jeu supprimé</div>']);
         break;
 
-    // --- Gestion Loc, Sous-Loc, Catégories ---
-    case 'add_item':
-    case 'delete_item':
-        $type = $input['type'] ?? ''; // 'loc', 'sous_loc', 'categories'
-        $value = trim($input['value'] ?? '');
-        if (!in_array($type, ['loc', 'sous_loc', 'categories']) || !$value) {
-            exit(json_encode(['status'=>'error', 'message'=>'Type ou valeur invalide.']));
-        }
-        $file = getUserFile($username, $type);
-        $items = load_json($file, ($type === 'loc' || $type === 'sous_loc') ? [""] : []);
-
-        if ($action === 'add_item') {
-            if (!in_array($value, $items)) $items[] = $value;
-            sort($items);
-            $message = 'Élément ajouté.';
-        } else { // delete_item
-            $items = array_values(array_filter($items, fn($i) => $i !== $value));
-            $message = 'Élément supprimé.';
-        }
-        
-        save_json($file, $items);
-        echo json_encode(['status'=>'ok', 'message' => $message]);
+    case 'random':
+        if(!$jeux) exit(json_encode(['status'=>'error','html'=>'<div class="msg err">Aucun jeu dispo</div>']));
+        $j = $jeux[array_rand($jeux)];
+        $html = "<div class='msg ok'><strong>".htmlspecialchars($j['nom'])."</strong> — ".htmlspecialchars($j['loc'])." → ".htmlspecialchars($j['sousloc'])."</div>";
+        echo json_encode(['status'=>'ok','html'=>$html]);
         break;
-    
+
+    case 'add_loc':
+        $val = trim($input['val'] ?? '');
+        if(!$val) exit(json_encode(['status'=>'error','html'=>'<div class="msg err">Valeur vide</div>']));
+        if(!in_array($val,$loc)) $loc[]=$val;
+        save_json(getUserFile($username,'loc'),$loc);
+        echo json_encode(['status'=>'ok','html'=>'<div class="msg ok">Nouvelle localisation "'.htmlspecialchars($val).'" ajoutée !</div>']);
+        break;
+
+    case 'delete_loc':
+        $val = trim($input['val'] ?? '');
+        $loc = array_values(array_filter($loc, fn($x)=>$x!==$val));
+        save_json(getUserFile($username,'loc'),$loc);
+        echo json_encode(['status'=>'ok','html'=>'<div class="msg ok">Localisation "'.htmlspecialchars($val).'" supprimée !</div>']);
+        break;
+
+    case 'add_sousloc':
+        $val = trim($input['val'] ?? '');
+        if(!$val) exit(json_encode(['status'=>'error','html'=>'<div class="msg err">Valeur vide</div>']));
+        if(!in_array($val,$sous_loc)) $sous_loc[]=$val;
+        save_json(getUserFile($username,'sous_loc'),$sous_loc);
+        echo json_encode(['status'=>'ok','html'=>'<div class="msg ok">Nouvelle sous-localisation "'.htmlspecialchars($val).'" ajoutée !</div>']);
+        break;
+
+    case 'delete_sousloc':
+        $val = trim($input['val'] ?? '');
+        $sous_loc = array_values(array_filter($sous_loc, fn($x)=>$x!==$val));
+        save_json(getUserFile($username,'sous_loc'),$sous_loc);
+        echo json_encode(['status'=>'ok','html'=>'<div class="msg ok">Sous-localisation "'.htmlspecialchars($val).'" supprimée !</div>']);
+        break;
+
+    case 'search':
+        $query = strtolower(trim($input['query'] ?? ''));
+        $res = array_filter($jeux, fn($j)=> !$query || str_contains(strtolower($j['nom']),$query) || str_contains(strtolower($j['loc']),$query) || str_contains(strtolower($j['sousloc']),$query));
+        if(!$res) echo json_encode(['status'=>'ok','html'=>'<div class="msg err">Aucun résultat</div>']);
+        else {
+            $lines=array_map(fn($r)=>htmlspecialchars($r['nom'])." — ".htmlspecialchars($r['loc'])." → ".htmlspecialchars($r['sousloc']), $res);
+            echo json_encode(['status'=>'ok','html'=>'<div class="msg ok">'.implode("<br>",$lines).'</div>']);
+        }
+        break;
+
     default:
-        echo json_encode(['status'=>'error', 'message'=>'Action inconnue.']);
+        echo json_encode(['status'=>'error','html'=>'<div class="msg err">Action inconnue</div>']);
 }
